@@ -29,7 +29,7 @@ $.simulate = function(el, type, options) {
 	} else {
 		this.simulateEvent(el, type, options);
 	}
-}
+};
 
 $.extend($.simulate.prototype, {
 	simulateEvent: function(el, type, options) {
@@ -94,7 +94,7 @@ $.extend($.simulate.prototype, {
 			evt = document.createEventObject();
 			$.extend(evt, e);
 		}
-		if ($.browser.msie || $.browser.opera) {
+		if (($.browser !== undefined) && ($.browser.msie || $.browser.opera)) {
 			evt.keyCode = (e.charCode > 0) ? e.charCode : e.keyCode;
 			evt.charCode = undefined;
 		}
